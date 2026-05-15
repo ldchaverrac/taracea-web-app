@@ -183,12 +183,4 @@ Sin scroll horizontal en ninguna resolución soportada. Tipografía e imágenes 
 
 - Copy en español. Estructurar los strings de UI en constantes o archivos de mensajes para facilitar una futura extracción a i18n.
 
----
-
-## 5. Fuera de alcance (versión 1)
-
-- Cuenta de usuario / login.
-- Pasarela de pago real (la confirmación de compra queda como mock).
-- Búsqueda con autocompletado y sugerencias.
-- Reseñas y valoraciones de productos.
-- Disponibilidad en tiempo real / inventario por sucursal.
+> Las capacidades que se difieren a iteraciones posteriores se documentan en la etapa de **Evolución y mantenimiento** del proyecto, no aquí.

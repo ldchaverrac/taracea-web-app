@@ -178,11 +178,4 @@ export class AnalisisRequisitosPage {
     },
   ];
 
-  protected readonly fueraDeAlcance: ReadonlyArray<string> = [
-    'Cuenta de usuario / login',
-    'Pasarela de pago real (la confirmación queda como mock)',
-    'Búsqueda con autocompletado',
-    'Reseñas y valoraciones',
-    'Inventario en tiempo real por sucursal',
-  ];
 }

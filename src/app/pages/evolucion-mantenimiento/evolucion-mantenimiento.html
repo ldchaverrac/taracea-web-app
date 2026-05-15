@@ -1,0 +1,32 @@
+<article class="evolucion">
+  <header class="evolucion__hero">
+    <p class="evolucion__etiqueta">Etapa 6</p>
+    <h1>Evolución y mantenimiento</h1>
+    <p class="evolucion__lead">
+      Lo que queda por fuera del primer producto y se planifica para iteraciones futuras. Esta
+      etapa cierra el ciclo de diseño y abre la conversación sobre cómo crece y se cuida el
+      producto después del lanzamiento.
+    </p>
+  </header>
+
+  <section class="seccion">
+    <h2>Funcionalidades pendientes</h2>
+    <p class="seccion__intro">
+      Capacidades identificadas durante el análisis que no entran en la versión 1. Se mantienen
+      visibles aquí para alimentar el backlog y guiar las próximas iteraciones.
+    </p>
+
+    <div class="pendientes">
+      @for (f of pendientes; track f.titulo) {
+        <article class="pendiente">
+          <h3>{{ f.titulo }}</h3>
+          <p class="pendiente__descripcion">{{ f.descripcion }}</p>
+          <p class="pendiente__razon">
+            <span class="pendiente__razon-etiqueta">Por qué se difiere</span>
+            {{ f.razon }}
+          </p>
+        </article>
+      }
+    </div>
+  </section>
+</article>
