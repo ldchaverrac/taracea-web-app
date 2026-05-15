@@ -1,0 +1,132 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.cabecera {
+  background: var(--color-superficie);
+  border-bottom: 1px solid var(--color-borde);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.cabecera__interior {
+  max-width: var(--ancho-contenido);
+  margin: 0 auto;
+  padding: var(--space-4) var(--space-6);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-6);
+}
+
+.cabecera__marca {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  text-decoration: none;
+  color: inherit;
+}
+
+.cabecera__logo {
+  height: 48px;
+  width: auto;
+  object-fit: contain;
+}
+
+.cabecera__subtitulo {
+  font-family: var(--font-titulo);
+  color: var(--color-texto-suave);
+  font-size: var(--fs-base);
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .cabecera__subtitulo {
+    display: inline;
+  }
+}
+
+.pestanas {
+  max-width: var(--ancho-contenido);
+  margin: 0 auto;
+  padding: 0 var(--space-6);
+}
+
+.pestanas__lista {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: var(--space-2);
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+
+.pestanas__item {
+  flex-shrink: 0;
+}
+
+.pestanas__enlace {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-4);
+  text-decoration: none;
+  color: var(--color-texto-suave);
+  border-bottom: 3px solid transparent;
+  transition: color var(--transicion), border-color var(--transicion), background var(--transicion);
+  white-space: nowrap;
+}
+
+.pestanas__enlace:hover {
+  color: var(--color-berenjena);
+  background: rgba(3, 152, 158, 0.04);
+}
+
+.pestanas__numero {
+  font-family: var(--font-acento);
+  font-size: var(--fs-lg);
+  color: var(--color-mostaza);
+  min-width: 1.5em;
+  text-align: center;
+}
+
+.pestanas__titulo {
+  font-size: var(--fs-sm);
+  font-weight: 500;
+}
+
+.pestanas__enlace--activo {
+  color: var(--color-berenjena);
+  border-bottom-color: var(--color-agua-marina);
+}
+
+.pestanas__enlace--activo .pestanas__numero {
+  color: var(--color-agua-marina);
+}
+
+.contenido {
+  flex: 1;
+  width: 100%;
+}
+
+.contenido__interior {
+  max-width: var(--ancho-contenido);
+  margin: 0 auto;
+  padding: var(--space-8) var(--space-6) var(--space-16);
+}
+
+.pie {
+  background: var(--color-berenjena);
+  color: var(--color-fondo);
+  text-align: center;
+  padding: var(--space-6) var(--space-4);
+  font-size: var(--fs-sm);
+}
+
+.pie p {
+  margin: 0;
+}

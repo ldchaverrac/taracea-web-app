@@ -1,0 +1,136 @@
+<article class="analisis">
+  <header class="analisis__hero">
+    <p class="analisis__etiqueta">Etapa 1</p>
+    <h1>Análisis de requisitos</h1>
+    <p class="analisis__lead">
+      Necesidades, actores y requisitos del sitio web de ventas de muebles
+      <strong>Taracea</strong>. Este documento es la base sobre la que se construyen las cuatro
+      etapas siguientes del ciclo de diseño.
+    </p>
+  </header>
+
+  <section class="seccion">
+    <h2>Contexto</h2>
+    <p>
+      Taracea es una empresa dedicada a la construcción de
+      muebles artesanales. La app de ventas que se diseña e implementa en la pestaña
+      <em>Implementación</em> es el producto final que justifica todo el recorrido de las etapas
+      anteriores.
+    </p>
+    <p class="analisis__audiencia">
+      <strong>Audiencia objetivo:</strong> clientes que buscan muebles — sala, comedor
+      y dormitorio — y valoran el diseño honesto, los materiales nobles y la elegancia atemporal.
+    </p>
+  </section>
+
+  <section class="seccion">
+    <h2>1. Identidad de marca</h2>
+
+    <h3>1.1 Logotipo</h3>
+    <div class="logo-muestra">
+      <div class="logo-muestra__claro">
+        <img src="/logos/taracea-berenjena.png" alt="Logo Taracea variante berenjena"/>
+      </div>
+      <div class="logo-muestra__oscuro">
+        <img src="/logos/taracea-blanco.png" alt="Logo Taracea variante blanca"/>
+      </div>
+    </div>
+    <p>
+      El kit de marca incluye variantes en negro, blanco y en cada uno de los tres colores
+      corporativos. En el header se usa la versión a color sobre fondo claro; en el footer y otros
+      fondos oscuros, la variante blanca.
+    </p>
+
+    <h3>1.2 Paleta de colores</h3>
+    <div class="paleta">
+      @for (color of colores; track color.hex) {
+        <article class="paleta__color">
+          <div class="paleta__muestra" [class]="color.clase"></div>
+          <p class="paleta__nombre">{{ color.nombre }}</p>
+          <p class="paleta__hex">{{ color.hex }}</p>
+          <p class="paleta__rol">{{ color.rol }}</p>
+          <code class="paleta__var">{{ color.cssVar }}</code>
+        </article>
+      }
+    </div>
+
+    <h3>1.3 Tipografía</h3>
+    <div class="tipografia">
+      @for (fuente of tipografias; track fuente.nombre) {
+        <article class="tipografia__muestra">
+          <p class="tipografia__nombre">{{ fuente.nombre }}</p>
+          <p class="tipografia__archivo"><code>{{ fuente.archivo }}</code></p>
+          <p class="tipografia__uso">{{ fuente.uso }}</p>
+          <p class="tipografia__demo" [class]="fuente.claseDemo">Taracea · Aa Bb 123</p>
+        </article>
+      }
+    </div>
+  </section>
+
+  <section class="seccion">
+    <h2>2. Arquitectura de información</h2>
+    <p>La aplicación de ventas se compone de cuatro vistas principales:</p>
+    <table class="tabla">
+      <thead>
+      <tr>
+        <th scope="col">Vista</th>
+        <th scope="col">Ruta</th>
+        <th scope="col">Descripción</th>
+      </tr>
+      </thead>
+      <tbody>
+        @for (r of rutas; track r.ruta) {
+          <tr>
+            <td>{{ r.vista }}</td>
+            <td><code>{{ r.ruta }}</code></td>
+            <td>{{ r.descripcion }}</td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </section>
+
+  <section class="seccion">
+    <h2>3. Componentes principales</h2>
+    <div class="componentes">
+      @for (c of componentes; track c.titulo) {
+        <article class="componente">
+          <h3>{{ c.titulo }}</h3>
+          <p class="componente__resumen">{{ c.descripcion }}</p>
+          <ul>
+            @for (d of c.detalles; track d) {
+              <li>{{ d }}</li>
+            }
+          </ul>
+        </article>
+      }
+    </div>
+  </section>
+
+  <section class="seccion">
+    <h2>4. Requisitos no funcionales</h2>
+    <dl class="rnf">
+      @for (req of requisitosNoFuncionales; track req.titulo) {
+        <div class="rnf__entrada">
+          <dt>{{ req.titulo }}</dt>
+          <dd>
+            <ul>
+              @for (d of req.detalles; track d) {
+                <li>{{ d }}</li>
+              }
+            </ul>
+          </dd>
+        </div>
+      }
+    </dl>
+  </section>
+
+  <section class="seccion">
+    <h2>5. Fuera de alcance (v1)</h2>
+    <ul class="fuera-de-alcance">
+      @for (item of fueraDeAlcance; track item) {
+        <li>{{ item }}</li>
+      }
+    </ul>
+  </section>
+</article>

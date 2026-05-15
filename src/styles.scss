@@ -1,1 +1,161 @@
-/* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: 'Seebad LT Std';
+  src: url('/fonts/seebad-lt-std.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Platelet Heavy';
+  src: url('/fonts/platelet-heavy.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* Marca */
+  --color-berenjena: #4d284a;
+  --color-agua-marina: #03989e;
+  --color-mostaza: #eab306;
+
+  /* Superficies y texto */
+  --color-fondo: #fafaf7;
+  --color-superficie: #ffffff;
+  --color-texto: #212121;
+  --color-texto-suave: #5e5e5e;
+  --color-borde: #e0dcd6;
+
+  /* Estados */
+  --color-exito: #2e7d32;
+  --color-error: #c62828;
+  --color-advertencia: #ef6c00;
+
+  /* Tipografías */
+  --font-titulo: 'Seebad LT Std', Georgia, 'Times New Roman', serif;
+  --font-acento: 'Platelet Heavy', Impact, 'Arial Black', sans-serif;
+  --font-cuerpo: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+
+  /* Escala tipográfica (1.25 mayor tercera, base 16) */
+  --fs-xs: 0.8rem;
+  --fs-sm: 0.9rem;
+  --fs-base: 1rem;
+  --fs-lg: 1.25rem;
+  --fs-xl: 1.563rem;
+  --fs-2xl: 1.953rem;
+  --fs-3xl: 2.441rem;
+  --fs-4xl: 3.052rem;
+
+  /* Espaciado */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+
+  /* Layout */
+  --radio: 0.5rem;
+  --sombra-suave: 0 1px 2px rgba(77, 40, 74, 0.06), 0 2px 8px rgba(77, 40, 74, 0.08);
+  --sombra-elevada: 0 4px 12px rgba(77, 40, 74, 0.12), 0 8px 24px rgba(77, 40, 74, 0.10);
+  --transicion: 180ms ease;
+  --ancho-contenido: 1200px;
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --fs-base: 1.0625rem;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-cuerpo);
+  font-size: var(--fs-base);
+  line-height: 1.5;
+  color: var(--color-texto);
+  background: var(--color-fondo);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-titulo);
+  line-height: 1.15;
+  color: var(--color-berenjena);
+  margin: 0 0 var(--space-4);
+  font-weight: normal;
+  letter-spacing: -0.01em;
+}
+
+h1 {
+  font-size: var(--fs-4xl);
+}
+h2 {
+  font-size: var(--fs-2xl);
+}
+h3 {
+  font-size: var(--fs-xl);
+}
+h4 {
+  font-size: var(--fs-lg);
+}
+
+p {
+  margin: 0 0 var(--space-4);
+}
+
+a {
+  color: var(--color-agua-marina);
+  text-decoration: none;
+  transition: color var(--transicion);
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--color-agua-marina);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+code {
+  font-family: 'JetBrains Mono', 'Fira Code', Menlo, Consolas, monospace;
+  font-size: 0.92em;
+  background: rgba(3, 152, 158, 0.08);
+  color: var(--color-berenjena);
+  padding: 0.1em 0.35em;
+  border-radius: 4px;
+}
+
+/* Utilidad: aplica la fuente de acento (precios, números destacados). */
+.acento-numerico {
+  font-family: var(--font-acento);
+  letter-spacing: 0.02em;
+}

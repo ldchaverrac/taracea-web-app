@@ -1,12 +1,24 @@
-import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component } from '@angular/core';
+import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+
+interface Etapa {
+  numero: number;
+  ruta: string;
+  titulo: string;
+}
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, RouterLink, RouterLinkActive],
   templateUrl: './app.html',
-  styleUrl: './app.scss'
+  styleUrl: './app.scss',
 })
 export class App {
-  protected readonly title = signal('taracea-web-app');
+  protected readonly etapas: ReadonlyArray<Etapa> = [
+    { numero: 1, ruta: '/analisis-requisitos', titulo: 'Análisis de requisitos' },
+    { numero: 2, ruta: '/modelo-mental', titulo: 'Modelo mental' },
+    { numero: 3, ruta: '/prototipo-lo-fi', titulo: 'Prototipado de baja fidelidad' },
+    { numero: 4, ruta: '/prototipo-hi-fi', titulo: 'Prototipado de alta fidelidad' },
+    { numero: 5, ruta: '/implementacion', titulo: 'Implementación' },
+  ];
 }
