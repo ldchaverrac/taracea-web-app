@@ -1,0 +1,122 @@
+<article class="modelo">
+  <header class="modelo__hero">
+    <p class="modelo__etiqueta">Etapa 2</p>
+    <h1>Modelo mental</h1>
+    <p class="modelo__lead">
+      Cómo entienden la app las personas que la usan: qué secciones esperan, qué camino siguen
+      para comprar, qué objetos manipulan y con qué palabras dialoga el sistema con ellas.
+    </p>
+  </header>
+
+  <section class="seccion">
+    <h2>1. Arquitectura de información</h2>
+    <p class="seccion__intro">
+      La app se organiza en cuatro vistas principales más dos elementos persistentes que
+      acompañan al usuario en todas ellas.
+    </p>
+
+    <h3>Vistas principales</h3>
+    <div class="ai-grilla">
+      @for (nodo of arquitectura; track nodo.titulo; let i = $index) {
+        <article class="ai-nodo">
+          <p class="ai-nodo__indice">0{{ i + 1 }}</p>
+          <h4>{{ nodo.titulo }}</h4>
+          @if (nodo.ruta) {
+            <code class="ai-nodo__ruta">{{ nodo.ruta }}</code>
+          }
+          <p class="ai-nodo__descripcion">{{ nodo.descripcion }}</p>
+          @if (nodo.hijos) {
+            <ul class="ai-nodo__hijos">
+              @for (h of nodo.hijos; track h.titulo) {
+                <li>
+                  <span class="ai-nodo__hijo-titulo">{{ h.titulo }}</span>
+                  <span class="ai-nodo__hijo-nota">{{ h.nota }}</span>
+                </li>
+              }
+            </ul>
+          }
+        </article>
+      }
+    </div>
+
+    <h3>Elementos globales</h3>
+    <div class="ai-globales">
+      @for (g of globales; track g.titulo) {
+        <article class="ai-global">
+          <h4>{{ g.titulo }}</h4>
+          <p>{{ g.descripcion }}</p>
+        </article>
+      }
+    </div>
+  </section>
+
+  <section class="seccion">
+    <h2>2. Flujo de compra</h2>
+    <p class="seccion__intro">
+      Camino que sigue el usuario desde que llega al catálogo hasta que recibe la confirmación
+      de su pedido. Incluye los puntos de decisión que pueden hacer que abandone, vuelva a
+      explorar o continúe avanzando.
+    </p>
+
+    <figure class="flujo">
+      <img
+          ngSrc="/images/flujo-compra.png"
+          alt="Diagrama de flujo: el usuario llega al catálogo, explora, selecciona un producto, lo añade al carrito, opcionalmente repite, y finaliza la compra."
+          loading="lazy"
+          height="1147" width="347"/>
+      <figcaption>Flujo de compra — Taracea. Generado desde <code>docs/diagrams/flujo-compra.puml</code>.</figcaption>
+    </figure>
+  </section>
+
+  <section class="seccion">
+    <h2>3. Modelo de objetos</h2>
+    <p class="seccion__intro">
+      Las entidades que el sistema manipula y cómo se relacionan entre sí. Es el vocabulario
+      compartido entre diseño, desarrollo y el cliente.
+    </p>
+
+    <div class="objetos">
+      @for (obj of objetos; track obj.nombre) {
+        <article class="objeto">
+          <h3>{{ obj.nombre }}</h3>
+          <p class="objeto__proposito">{{ obj.proposito }}</p>
+
+          <p class="objeto__seccion">Atributos</p>
+          <ul class="objeto__chips">
+            @for (a of obj.atributos; track a) {
+              <li class="chip">{{ a }}</li>
+            }
+          </ul>
+
+          <p class="objeto__seccion">Relaciones</p>
+          <ul class="objeto__relaciones">
+            @for (r of obj.relaciones; track r) {
+              <li>{{ r }}</li>
+            }
+          </ul>
+        </article>
+      }
+    </div>
+  </section>
+
+  <section class="seccion">
+    <h2>4. Metáforas de interacción</h2>
+    <p class="seccion__intro">
+      Decisiones de vocabulario: cómo nombra el sistema las acciones y los lugares. Cada elección
+      activa un mapa mental distinto en el usuario.
+    </p>
+
+    <div class="metaforas">
+      @for (m of metaforas; track m.elegido) {
+        <article class="metafora">
+          <div class="metafora__decision">
+            <span class="metafora__elegido">{{ m.elegido }}</span>
+            <span class="metafora__vs">en lugar de</span>
+            <span class="metafora__descartado">{{ m.descartado }}</span>
+          </div>
+          <p class="metafora__razon">{{ m.razon }}</p>
+        </article>
+      }
+    </div>
+  </section>
+</article>

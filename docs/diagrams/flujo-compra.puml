@@ -1,0 +1,65 @@
+@startuml flujo-compra
+title Flujo de compra — Taracea
+
+skinparam backgroundColor #FAFAF7
+skinparam shadowing false
+skinparam defaultFontName "Helvetica"
+skinparam defaultFontSize 13
+skinparam defaultFontColor #212121
+
+skinparam activity {
+  BackgroundColor #FFFFFF
+  BorderColor #4d284a
+  BorderThickness 1.5
+  FontColor #212121
+  DiamondBackgroundColor #FFFFFF
+  DiamondBorderColor #03989e
+  DiamondFontColor #4d284a
+  ArrowColor #4d284a
+  ArrowThickness 1.2
+  StartColor #03989e
+  EndColor #4d284a
+  BarColor #03989e
+}
+
+skinparam note {
+  BackgroundColor #FFF8E1
+  BorderColor #eab306
+  FontColor #4d284a
+}
+
+start
+
+:Llega al catálogo;
+:Explora productos;
+
+if (¿Usa filtros o búsqueda?) then (sí)
+  :Aplica filtros;
+endif
+
+repeat
+  :Selecciona un producto;
+  :Revisa el detalle;
+
+  if (¿Le convence?) then (sí)
+    :Ajusta cantidad;
+    :Añade al carrito;
+  else (no)
+    :Vuelve al catálogo;
+  endif
+
+repeat while (¿Quiere añadir otro producto?) is (sí) not (no)
+
+:Abre el carrito;
+:Revisa el resumen;
+
+if (¿Aplica código de descuento?) then (sí)
+  :Aplica descuento;
+endif
+
+:Finaliza compra;
+:Recibe confirmación;
+
+stop
+
+@enduml
