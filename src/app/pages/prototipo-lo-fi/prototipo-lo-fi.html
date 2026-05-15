@@ -1,0 +1,35 @@
+<article class="lo-fi">
+  <header class="lo-fi__hero">
+    <p class="lo-fi__etiqueta">Etapa 3</p>
+    <h1>Prototipado de baja fidelidad</h1>
+    <p class="lo-fi__lead">
+      Bocetos manuales de las tres vistas principales de la app de ventas. El objetivo es
+      validar estructura, jerarquía y navegación antes de invertir esfuerzo en el diseño visual
+      detallado.
+    </p>
+  </header>
+
+  <figure class="lo-fi__lienzo">
+    <img
+        src="/images/prototipo-lo-fi.png"
+        alt="Wireframes de baja fidelidad de tres vistas: catálogo de productos, detalle de producto y carrito de compras."
+        loading="lazy"
+    />
+    <figcaption>
+      Wireframe original — Taracea · catálogo, detalle y carrito.
+    </figcaption>
+  </figure>
+
+  <section class="lo-fi__vistas">
+    <h2>Lectura del wireframe</h2>
+    <div class="lo-fi__grid">
+      @for (vista of vistas; track vista.titulo; let i = $index) {
+        <article class="lo-fi__vista">
+          <p class="lo-fi__indice">0{{ i + 1 }}</p>
+          <h3>{{ vista.titulo }}</h3>
+          <p>{{ vista.descripcion }}</p>
+        </article>
+      }
+    </div>
+  </section>
+</article>
