@@ -1,0 +1,39 @@
+<section class="implementacion">
+  <header class="implementacion__intro">
+    <p class="implementacion__etiqueta">Etapa 5</p>
+    <h1>Implementación</h1>
+    <p class="implementacion__lead">
+      La app de ventas de Taracea funcionando como producto.
+    </p>
+  </header>
+
+  <div class="tienda" role="region" aria-label="Sitio de ventas Taracea">
+    <header class="tienda__cabecera">
+      <a routerLink="/implementacion" class="tienda__marca" aria-label="Inicio tienda Taracea">
+        <img src="/logos/taracea-berenjena.png" alt=""/>
+      </a>
+
+      <label class="tienda__busqueda">
+        <span class="tienda__busqueda-icono" aria-hidden="true">⌕</span>
+        <input
+            type="search"
+            placeholder="Buscar muebles…"
+            [value]="busqueda.texto()"
+            (input)="onBusquedaInput($event)"
+            aria-label="Buscar muebles"
+        />
+      </label>
+
+      <a routerLink="/implementacion/carrito" class="tienda__carrito" aria-label="Ver carrito">
+        <span class="tienda__carrito-icono" aria-hidden="true">⛒</span>
+        @if (carrito.cantidadTotal() > 0) {
+          <span class="tienda__badge">{{ carrito.cantidadTotal() }}</span>
+        }
+      </a>
+    </header>
+
+    <main class="tienda__contenido">
+      <router-outlet/>
+    </main>
+  </div>
+</section>

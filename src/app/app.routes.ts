@@ -29,8 +29,8 @@ export const routes: Routes = [
   {
     path: 'implementacion',
     title: 'Implementación · Taracea',
-    loadComponent: () =>
-      import('./pages/implementacion/implementacion').then((m) => m.ImplementacionPage),
+    loadChildren: () =>
+      import('./pages/implementacion/implementacion.routes').then((m) => m.implementacionRoutes),
   },
   { path: '**', redirectTo: 'analisis-requisitos' },
 ];

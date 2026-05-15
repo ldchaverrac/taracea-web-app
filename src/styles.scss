@@ -159,3 +159,75 @@ code {
   font-family: var(--font-acento);
   letter-spacing: 0.02em;
 }
+
+/* Botones del sistema de diseño */
+.boton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-6);
+  border: 1px solid transparent;
+  border-radius: var(--radio);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background var(--transicion), color var(--transicion), border-color var(--transicion);
+  text-decoration: none;
+}
+
+.boton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.boton--primario {
+  background: var(--color-agua-marina);
+  color: #fff;
+}
+
+.boton--primario:hover:not(:disabled) {
+  background: #028086;
+  text-decoration: none;
+}
+
+.boton--secundario {
+  background: transparent;
+  color: var(--color-berenjena);
+  border-color: var(--color-borde);
+}
+
+.boton--secundario:hover:not(:disabled) {
+  border-color: var(--color-agua-marina);
+  color: var(--color-agua-marina);
+  text-decoration: none;
+}
+
+.boton--bloque {
+  width: 100%;
+}
+
+/* Chip-filtro: chip clickeable usado en filtros */
+.chip-filtro {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-2) var(--space-4);
+  border: 1px solid var(--color-borde);
+  border-radius: 999px;
+  background: var(--color-superficie);
+  color: var(--color-texto);
+  font: inherit;
+  font-size: var(--fs-sm);
+  cursor: pointer;
+  transition: background var(--transicion), color var(--transicion), border-color var(--transicion);
+}
+
+.chip-filtro:hover {
+  border-color: var(--color-agua-marina);
+}
+
+.chip-filtro--activo {
+  background: var(--color-berenjena);
+  color: var(--color-fondo);
+  border-color: var(--color-berenjena);
+}

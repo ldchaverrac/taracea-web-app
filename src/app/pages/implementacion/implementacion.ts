@@ -1,18 +1,20 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { RouterLink, RouterOutlet } from '@angular/router';
+import { CarritoService } from './servicios/carrito.service';
+import { BusquedaService } from './servicios/busqueda.service';
 
 @Component({
   selector: 'app-implementacion',
-  template: `
-    <section class="placeholder">
-      <p class="placeholder__etapa">Etapa 5</p>
-      <h1>Implementación</h1>
-      <p class="placeholder__resumen">
-        El sitio web de ventas de Taracea funcionando como tal: catálogo, detalle de producto y
-        carrito construidos a partir de todos los artefactos previos.
-      </p>
-      <p class="placeholder__estado">Próximamente</p>
-    </section>
-  `,
-  styleUrl: '../page-placeholder.scss',
+  imports: [RouterOutlet, RouterLink],
+  templateUrl: './implementacion.html',
+  styleUrl: './implementacion.scss',
 })
-export class ImplementacionPage {}
+export class ImplementacionPage {
+  protected readonly carrito = inject(CarritoService);
+  protected readonly busqueda = inject(BusquedaService);
+
+  protected onBusquedaInput(evento: Event): void {
+    const valor = (evento.target as HTMLInputElement).value;
+    this.busqueda.texto.set(valor);
+  }
+}
